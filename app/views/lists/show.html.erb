@@ -12,10 +12,27 @@
   <%end%>
 </ul>
 
+<h2>Reviews:</h2>
+<ul>
+  <% @list.reviews.each do |review| %>
+    <li>
+      (<%= review.rating %>/5) <%= time_ago_in_words(review.created_at) %>| <%= review.comment %>
+    </li>
+  <%end%>
+</ul>
+
 <h6>Add a new bookmark to '<%= @list.name%>':</h6>
 
 <%= simple_form_for [@list, @bookmark] do |f| %>
   <%= f.input :comment %>
   <%= f.association :movie %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
+
+<h6>Add a new review to '<%= @list.name%>':</h6>
+
+<%= simple_form_for [@list, @review] do |f| %>
+  <%= f.input :comment %>
+  <%= f.input :rating %>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
