@@ -1,0 +1,7 @@
+<h3><%=@list.name%>:</h3>
+
+<ul>
+  <% @list.movies.each do |movie| %>
+    <li><%= movie %></li>
+  <%end%>
+</ul>
