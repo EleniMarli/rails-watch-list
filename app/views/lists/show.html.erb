@@ -1,8 +1,14 @@
 <h3><%=@list.name%>:</h3>
 
 <ul>
-  <% @list.movies.each do |movie| %>
-    <li><%= movie.title %></li>
+  <% @list.bookmarks.each do |bookmark| %>
+    <li>
+      <%= bookmark.movie.title %>
+      <%= link_to "❌",
+        bookmark_path(bookmark),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %>
+    </li>
   <%end%>
 </ul>
 
