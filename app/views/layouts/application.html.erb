@@ -12,9 +12,11 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white border d-flex justify-content-end">
-      <a class="navbar-brand btn rounded border shadow-sm" href="/lists">My lists</a>
-      <a class="navbar-brand btn rounded border shadow-sm" href="/lists/new">New list</a>
+    <nav class="navbar navbar-expand-sm navbar-light navbar-top">
+      <ul class="list-inline tabs-underlined">
+        <li><a class="tab-underlined navbar-brand" href="/lists">My lists</a></li>
+        <li><a class="tab-underlined navbar-brand" href="/lists/new">New list</a></li>
+      </ul>
     </nav>
 
     <%= yield %>
