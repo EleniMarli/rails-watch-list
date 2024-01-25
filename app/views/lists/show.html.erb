@@ -12,4 +12,10 @@
   <%end%>
 </ul>
 
-<%= link_to 'Add new bookmark', new_list_bookmark_path(@list)%>
+<h6>Add a new bookmark to '<%= @list.name%>':</h6>
+
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
