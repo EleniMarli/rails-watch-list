@@ -20,5 +20,9 @@
     font-weight: bold;
     text-align: center;
     font-family: "Nunito", "Helvetica", "sans-serif";
+
+    &:hover {
+      font-size: 25px;
+    }
   }
 }

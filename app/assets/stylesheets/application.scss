@@ -12,20 +12,25 @@
 @import "pages/index";
 @import "pages/show";
 
-.tabs-underlined {
-  display: flex;
-  margin: 0;
-
-  .tab-underlined {
-    color: black;
-    padding: 8px;
-    opacity: .4;
-    cursor: pointer;
-    text-decoration: none;
-  }
-}
 
 .navbar-top {
   justify-content: flex-end;
   background: white;
+
+  .tabs-underlined {
+    display: flex;
+    margin: 0;
+
+    .tab-underlined {
+      color: black;
+      padding: 8px;
+      opacity: .4;
+      cursor: pointer;
+      text-decoration: none;
+
+      &:hover {
+        opacity: 100;
+      }
+    }
+  }
 }

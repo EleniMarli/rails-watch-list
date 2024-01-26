@@ -18,6 +18,10 @@
       margin: 0;
       text-decoration: none;
       color: red;
+
+      &:hover {
+        font-size: 18px;
+      }
     }
   }
 
