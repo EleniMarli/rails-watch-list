@@ -11,11 +11,11 @@ require 'open-uri'
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-indeces = (0..19).to_a.sample(5)
+indeces = (0..19).to_a.sample(10)
 
 parsed = JSON.parse(URI.open('https://tmdb.lewagon.com/movie/top_rated').read)
 
 indeces.each do |index|
   movie = parsed['results'][index]
-  Movie.create(title: movie['original_title'], overview: movie['overview'], poster_url: "https://image.tmdb.org/t/p/w500#{movie['poster_path']}", rating: movie['vote_average'])
+  Movie.create(title: movie['original_title'], overview: movie['overview'], poster_url: "https://image.tmdb.org/t/p/w500#{movie['poster_path']}", rating: movie['vote_average'].round(1))
 end

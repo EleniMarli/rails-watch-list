@@ -1,8 +1,6 @@
-<div div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1625&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
-  <h1>Save any kind of movies</h1>
+<div div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @list.photo.key %>);">
+  <h1><%=@list.name%></h1>
 </div>
-
-<h3><%=@list.name%>:</h3>
 
 <div class="cards-container">
   <% @list.bookmarks.each do |bookmark| %>
