@@ -28,27 +28,52 @@
 </div>
 
 
-<h2>Reviews:</h2>
-<ul>
-  <% @list.reviews.each do |review| %>
-    <li>
-      (<%= review.rating %>/5) <%= time_ago_in_words(review.created_at) %>| <%= review.comment %>
-    </li>
-  <%end%>
-</ul>
+<div class='bottom-container-show'>
+  <div class='bookmark-container'>
+    <h5>Add a new movie to '<%= @list.name%>':</h5>
 
-<h6>Add a new bookmark to '<%= @list.name%>':</h6>
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.input :comment %>
+      <%= f.association :movie %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
 
-<%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.input :comment %>
-  <%= f.association :movie %>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
+  </div>
 
-<h6>Add a new review to '<%= @list.name%>':</h6>
+  <div class='reviews-container'>
+    <div class='box-show-reviews'>
 
-<%= simple_form_for [@list, @review] do |f| %>
-  <%= f.input :comment %>
-  <%= f.input :rating %>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
+      <h2>Reviews</h2>
+      <ul class="list-unstyled">
+        <% @list.reviews.each do |review| %>
+          <li>
+            <p id="stars">
+              <% stars =  case review.rating
+                          when 1 then '⭐'
+                          when 2 then '⭐⭐'
+                          when 3 then '⭐⭐⭐'
+                          when 4 then '⭐⭐⭐⭐'
+                          when 5 then '⭐⭐⭐⭐⭐'
+                          end %>
+              <%=stars%>
+              <%= time_ago_in_words(review.created_at) %> ago
+            </p>
+            <p id='review-comment'><%= review.comment %></p>
+          </li>
+        <%end%>
+      </ul>
+
+    </div>
+
+    <div class='box-add-review'>
+
+      <h5>Add your review:</h6>
+      <%= simple_form_for [@list, @review] do |f| %>
+        <%= f.input :comment %>
+        <%= f.input :rating, as: :select, collection: 1..5 %>
+        <%= f.submit class: "btn btn-primary" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

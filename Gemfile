@@ -9,7 +9,6 @@ gem "simple_form"
 gem "sassc-rails"
 gem "jquery-rails"
 
-
 # Cloudinary
 gem "cloudinary"
 

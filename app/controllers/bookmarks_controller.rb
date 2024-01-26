@@ -10,8 +10,12 @@ class BookmarksController < ApplicationController
     @list = List.find(params[:list_id])
     @bookmark.movie = @movie
     @bookmark.list = @list
-    @bookmark.save
-    redirect_to list_path(@list)
+    if @bookmark.save
+      redirect_to list_path(@list)
+    else
+      @review = Review.new
+      render 'lists/show', status: :unprocessable_entity
+    end
   end
 
   def destroy

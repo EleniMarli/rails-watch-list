@@ -1,0 +1,35 @@
+.reviews-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
+  margin-top: 4%;
+  border-top: 1px solid rgb(216, 216, 216);
+  padding-top: 5%;
+
+  .box-show-reviews {
+    li {
+      border-bottom: 1px solid rgb(216, 216, 216);
+    }
+
+    #stars {
+      color: rgb(167, 167, 167);
+      font-size: 14px;
+      margin-top: 1rem;
+      margin-bottom: 0rem;
+    }
+
+    #review-comment {
+
+    }
+  }
+
+  .box-add-review {
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 21px;
+  }
+}
